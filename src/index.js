@@ -1,34 +1,25 @@
 import React from 'react';
 import ReactDom from 'react-dom'
 
-const TodoList = () => {
-    return (
-        <ul>
-            <li>Learn React</li>
-            <li>Build Awesome App</li>
-            <li>Learn Redux</li>
-        </ul>
-    )
-}
-
-const AppHeader = () => {
-    return (
-        <h1>My Todo List</h1>
-    )
-}
-
-const SearchPanel = () => {
-    return <input placeholder="search"/>
-}
+import AppHeader from "./components/app-header";
+import SearchPanel from "./components/search-panel";
+import TodoList from "./components/todo-list";
 
 const App = () => {
+//ми можешм в якості властивостей передати сам масив
+    const todoData = [
+        { label: 'Learn React', important: false},
+        { label: 'Build Awesome App', important: true},
+        { label: 'Learn Redux', important: false},
+    ];
+
     return (
         <>
             <AppHeader/>
             <SearchPanel/>
-            <TodoList/>
+            <TodoList />
         </>
-
     )
-}
+};
+
 ReactDom.render(<App/>, document.getElementById('root'));
