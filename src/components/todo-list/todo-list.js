@@ -3,16 +3,21 @@ import './style.css'
 
 import TodoListItem from "../todo-list-item";
 
-const TodoList = (props) => {
+const TodoList = ({ todos }) => {
+
+    const elements = todos.map((item) => {
+
+        const { id, ...itemProps } = item;
+        return (
+            <li key = { id } className="list-group-item">
+                <TodoListItem { ...itemProps } />
+            </li>
+        )
+    })
 
     return (
-        <ul>
-            <li><TodoListItem label = "Learn React"  /></li>
-            <li><TodoListItem
-                label = "Build Awesome App"
-                important
-            /></li>
-            <li><TodoListItem label = "Learn Redux" /></li>
+        <ul className="list-group-item">
+            { elements }
         </ul>
     )
 };
